@@ -2,6 +2,7 @@ import { generateId, YooptaPlugin } from '@yoopta/editor';
 import { CodeCommands } from '../commands';
 import { CodeElementMap, CodeElementProps, CodePluginBlockOptions, CodePluginElements } from '../types';
 import { CodeEditor } from '../ui/Code';
+import {defaultLocales} from '../locales';
 
 const ALIGNS_TO_JUSTIFY = {
   left: 'flex-start',
@@ -100,6 +101,7 @@ const Code = new YooptaPlugin<CodeElementMap, CodePluginBlockOptions>({
       },
     },
   },
+  translations: defaultLocales,
 });
 
 function escapeHTML(text) {

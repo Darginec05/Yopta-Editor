@@ -2,6 +2,7 @@ import { generateId, YooptaPlugin } from '@yoopta/editor';
 import { EmbedCommands } from '../commands';
 import { EmbedElementMap, EmbedPluginOptions } from '../types';
 import { EmbedRender } from '../ui/Embed';
+import {defaultLocales} from '../locales';
 
 const ALIGNS_TO_JUSTIFY = {
   left: 'flex-start',
@@ -89,6 +90,7 @@ const Embed = new YooptaPlugin<EmbedElementMap, EmbedPluginOptions>({
       },
     },
   },
+  translations: defaultLocales,
 });
 
 export { Embed };

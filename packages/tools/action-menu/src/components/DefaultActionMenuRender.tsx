@@ -1,6 +1,7 @@
 import { cloneElement, isValidElement } from 'react';
 import { ActionMenuRenderProps } from '../types';
 import { DEFAULT_ICONS_MAP } from './icons';
+import {useTranslation} from '@yoopta/editor';
 
 const DefaultActionMenuRender = ({
   actions,
@@ -10,6 +11,7 @@ const DefaultActionMenuRender = ({
   getRootProps,
   view = 'default',
 }: ActionMenuRenderProps) => {
+  const { t } = useTranslation();
   const isViewSmall = view === 'small';
 
   const wrapStyles = {
@@ -50,8 +52,8 @@ const DefaultActionMenuRender = ({
 
             if (!block) return null;
 
-            const title = block.options?.display?.title || block.type;
-            const description = block.options?.display?.description || '';
+            const title = t(`${block.type.toLowerCase()}.title`) || block.options?.display?.title || block.type;
+            const description = t(`${block.type.toLowerCase()}.description`) || block.options?.display?.description || '';
             const Icon = action.icon || DEFAULT_ICONS_MAP[action.type];
 
             return (

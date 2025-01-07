@@ -7,6 +7,7 @@ export {
   useYooptaReadOnly,
   useYooptaPluginOptions,
 } from './contexts/YooptaContext/YooptaContext';
+export { useTranslation } from './i18n/hooks/useTranslation';
 import { YooptaEditor, type YooptaEditorProps, type YooptaOnChangeOptions } from './YooptaEditor';
 export { deserializeHTML } from './parsers/deserializeHTML';
 export { type EmailTemplateOptions } from './parsers/getEmail';

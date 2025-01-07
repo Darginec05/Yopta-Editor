@@ -155,6 +155,8 @@ type YooptaEditor = {
   style?: number | string;
   /* Id for your editor instance. Can be useful for multiple editors */
   id?: number | string;
+  /* Custom translations for the editor. Allows you to override current translations or add a new whole language. */
+  translations?: Translations;
 };
 ```
 

@@ -1,10 +1,7 @@
 import YooptaEditor, {
-  Blocks,
   createYooptaEditor,
-  generateId,
   YooptaOnChangeOptions,
   YooEditor,
-  YooptaBlockData,
   YooptaContentValue,
   YooptaPath,
 } from '@yoopta/editor';
@@ -809,20 +806,19 @@ const BasicExample = () => {
   return (
     <>
       <div className="px-[100px] max-w-[900px] mx-auto my-10 flex flex-col items-center" ref={selectionRef}>
-        <FixedToolbar editor={editor} DEFAULT_DATA={data} />
+        <FixedToolbar editor={editor} DEFAULT_DATA={data}/>
         <YooptaEditor
-          editor={editor}
-          plugins={YOOPTA_PLUGINS}
-          selectionBoxRoot={selectionRef}
-          marks={MARKS}
-          autoFocus={true}
-          readOnly={false}
-          placeholder="Type / to open menu"
-          tools={TOOLS}
-          style={EDITOR_STYLE}
-          value={value}
-          onChange={onChange}
-          onPathChange={onPathChange}
+            editor={editor}
+            plugins={YOOPTA_PLUGINS}
+            selectionBoxRoot={selectionRef}
+            marks={MARKS}
+            autoFocus={true}
+            readOnly={false}
+            tools={TOOLS}
+            style={EDITOR_STYLE}
+            value={value}
+            onChange={onChange}
+            onPathChange={onPathChange}
         />
       </div>
     </>

@@ -7,6 +7,7 @@ import { AccordionItemContent } from '../renders/AccordionItemContent';
 import { Transforms } from 'slate';
 import { ListCollapse } from 'lucide-react';
 import { AccordionCommands } from '../commands';
+import {defaultLocales} from '../locales';
 
 const ACCORDION_ELEMENTS = {
   AccordionList: 'accordion-list',
@@ -221,6 +222,7 @@ const Accordion = new YooptaPlugin<AccordionElementMap>({
       },
     },
   },
+  translations: defaultLocales,
 });
 
 export { Accordion };

@@ -6,6 +6,7 @@ import {
 } from '@yoopta/editor';
 import { HeadingThreeCommands } from '../commands';
 import { HeadingThreeElement } from '../types';
+import {defaultHeadingThreeLocales} from '../locales';
 
 const HeadingThreeRender = ({ extendRender, ...props }: PluginElementRenderProps) => {
   const { element, HTMLAttributes = {}, attributes, children } = props;
@@ -91,6 +92,7 @@ const HeadingThree = new YooptaPlugin<Record<'heading-three', HeadingThreeElemen
       },
     },
   },
+  translations: defaultHeadingThreeLocales
 });
 
 export { HeadingThree };

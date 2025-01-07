@@ -2,6 +2,7 @@ import { serializeTextNodes, serializeTextNodesIntoMarkdown, YooptaPlugin } from
 import { BlockquoteCommands } from '../commands';
 import { BlockquoteElement } from '../types';
 import { BlockquoteRender } from '../ui/Blockquote';
+import {defaultLocales} from '../locales';
 
 const Blockquote = new YooptaPlugin<Record<'blockquote', BlockquoteElement>>({
   type: 'Blockquote',
@@ -59,6 +60,7 @@ const Blockquote = new YooptaPlugin<Record<'blockquote', BlockquoteElement>>({
       },
     },
   },
+  translations: defaultLocales,
 });
 
 export { Blockquote };

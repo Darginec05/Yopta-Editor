@@ -3,6 +3,7 @@ import { Element, Transforms } from 'slate';
 import { ParagraphCommands } from '../commands';
 import { ParagraphElement, ParagraphElementMap } from '../types';
 import { ParagraphRender } from '../ui/Paragraph';
+import {defaultLocales} from '../locales';
 
 const Paragraph = new YooptaPlugin<ParagraphElementMap>({
   type: 'Paragraph',
@@ -56,6 +57,7 @@ const Paragraph = new YooptaPlugin<ParagraphElementMap>({
     },
   },
   commands: ParagraphCommands,
+  translations: defaultLocales,
 });
 
 export { Paragraph };

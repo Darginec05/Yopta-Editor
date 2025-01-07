@@ -3,6 +3,7 @@ import { DividerCommands } from '../commands';
 import { onKeyDown } from '../events/onKeyDown';
 import { DividerElementMap } from '../types';
 import { DividerRender } from '../elements/Divider';
+import {defaultLocales} from '../locales';
 
 const Divider = new YooptaPlugin<DividerElementMap>({
   type: 'Divider',
@@ -76,6 +77,7 @@ const Divider = new YooptaPlugin<DividerElementMap>({
   events: {
     onKeyDown,
   },
+  translations: defaultLocales,
 });
 
 export { Divider };

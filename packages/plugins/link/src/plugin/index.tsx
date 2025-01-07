@@ -2,6 +2,7 @@ import { deserializeTextNodes, generateId, serializeTextNodes, YooptaPlugin } fr
 import { LinkCommands } from '../commands';
 import { LinkElementMap, LinkElementProps } from '../types';
 import { LinkRender } from '../ui/LinkRender';
+import {defaultLocales} from '../locales';
 
 const Link = new YooptaPlugin<LinkElementMap>({
   type: 'LinkPlugin',
@@ -77,6 +78,7 @@ const Link = new YooptaPlugin<LinkElementMap>({
       },
     },
   },
+  translations: defaultLocales,
 });
 
 export { Link };

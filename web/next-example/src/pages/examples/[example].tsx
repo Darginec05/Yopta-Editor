@@ -25,6 +25,7 @@ import withShadcnUILibrary from '@/components/examples/withShadcnUILibrary';
 import withEditorHistory from '@/components/examples/withEditorHistory';
 import withEditorOperations from '@/components/examples/withEditorOperations';
 import withEmailBuilder from '@/components/examples/withEmailBuilder';
+import withTranslations from '@/components/examples/withTranslations';
 // import withCraftExample from '@/components/examples/withCraftExample';
 // import withEditorFocusBlur from '@/components/examples/withEditorFocusBlur';
 // import withStarterKit from '@/components/examples/withStarterKit';
@@ -61,6 +62,7 @@ export const EXAMPLES: Record<string, () => React.JSX.Element> = {
   withSavingToDatabase,
   withCustomStyles,
   withLargeDocuments,
+  withTranslations
   // withStarterKit,
   // withCustomHTMLAttributes,
   // withEditorFocusBlur,
@@ -184,6 +186,10 @@ const EXAMPLE_MAP: Record<keyof typeof EXAMPLES, any> = {
   },
   withEmailBuilder: {
     title: 'Meet Email-Builder based on Yoopta! (new)',
+    description: '',
+  },
+  withTranslations: {
+    title: 'Add translations (new)',
     description: '',
   },
 };

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import {useEffect, useMemo, useState} from 'react';
 import { DefaultActionMenuRender } from './DefaultActionMenuRender';
 import { useFloating, offset, flip, shift, autoUpdate, useTransitionStyles } from '@floating-ui/react';
 import { Editor, Element, NodeEntry, Path, Transforms } from 'slate';
@@ -95,10 +95,15 @@ const ActionMenuList = ({ items, render }: ActionMenuToolProps) => {
     duration: 100,
   });
 
-  const blockTypes: ActionMenuToolItem[] = mapActionMenuItems(editor, items || Object.keys(editor.blocks));
+  const blockTypes = useMemo(() => mapActionMenuItems(editor, items || Object.keys(editor.blocks)), [editor, items]);
 
   const [selectedAction, setSelectedAction] = useState<ActionMenuToolItem>(blockTypes[0]);
   const [actions, setActions] = useState<ActionMenuToolItem[]>(blockTypes);
+
+  useEffect(() => {
+    setActions(blockTypes);
+    setSelectedAction(blockTypes[0]);
+  }, [blockTypes]);
 
   const onOpen = () => setIsMenuOpen(true);
   const onClose = () => setIsMenuOpen(false);
@@ -354,28 +359,18 @@ const ActionMenuList = ({ items, render }: ActionMenuToolProps) => {
 
   const style = { ...floatingStyles, ...transitionStyles };
 
-  if (render) {
-    return (
-      // [TODO] - take care about SSR
+  const menuContent = render ? render({ ...renderProps, actions }) : <DefaultActionMenuRender {...renderProps} actions={actions} />;
+
+
+  // [TODO] - take care about SSR
+  return (
       <Portal id="yoo-action-menu-list-portal">
         {isMounted && (
-          <div className="yoopta-action-menu-list" style={style} ref={refs.setFloating}>
-            {/* [TODO] - pass key down handler */}
-            {render({ ...renderProps, actions })}
-          </div>
+            <div className="yoopta-action-menu-list" style={style} ref={refs.setFloating}>
+              {menuContent}
+            </div>
         )}
       </Portal>
-    );
-  }
-
-  return (
-    <Portal id="yoo-action-menu-list-portal">
-      {isMounted && (
-        <div className="yoopta-action-menu-list" style={style} ref={refs.setFloating}>
-          <DefaultActionMenuRender {...renderProps} actions={actions} />
-        </div>
-      )}
-    </Portal>
   );
 };
 

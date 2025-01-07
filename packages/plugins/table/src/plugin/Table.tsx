@@ -12,6 +12,7 @@ import { deserializeTable } from '../parsers/html/deserialize';
 import { serializeTable } from '../parsers/html/serialize';
 import { serializeMarkown } from '../parsers/markdown/serialize';
 import { serializeTableToEmail } from '../parsers/email/serialize';
+import { defaultLocales } from '../locales';
 
 const Table = new YooptaPlugin<TableElementMap>({
   type: 'Table',
@@ -70,6 +71,7 @@ const Table = new YooptaPlugin<TableElementMap>({
     shortcuts: ['table', '||', '3x3'],
   },
   commands: TableCommands,
+  translations: defaultLocales
 });
 
 export { Table };

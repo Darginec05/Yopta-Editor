@@ -4,6 +4,7 @@ import { NumberedListRender } from '../elements/NumberedList';
 import { onKeyDown } from '../events/onKeyDown';
 import { ListElementMap } from '../types';
 import { deserializeListNodes } from '../utils/deserializeListNodes';
+import { defaultNumberedListLocales } from '../locales';
 
 const NumberedList = new YooptaPlugin<Pick<ListElementMap, 'numbered-list'>>({
   type: 'NumberedList',
@@ -81,6 +82,7 @@ const NumberedList = new YooptaPlugin<Pick<ListElementMap, 'numbered-list'>>({
       },
     },
   },
+  translations: defaultNumberedListLocales
 });
 
 export { NumberedList };
