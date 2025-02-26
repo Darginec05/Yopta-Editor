@@ -1,17 +1,18 @@
-import Paragraph, { ParagraphCommands } from '@yoopta/paragraph';
-import Embed, { EmbedCommands } from '@yoopta/embed';
-import Image, { ImageCommands } from '@yoopta/image';
-import Link, { LinkCommands } from '@yoopta/link';
-import Callout, { CalloutCommands } from '@yoopta/callout';
+import { ParagraphCommands } from '@yoopta/paragraph';
+import { EmbedCommands } from '@yoopta/embed';
+import { ImageCommands } from '@yoopta/image';
+import { LinkCommands } from '@yoopta/link';
+import { CalloutCommands } from '@yoopta/callout';
+import { TableCommands } from '@yoopta/table';
 
 import { AccordionCommands } from '@yoopta/accordion';
 import { TodoListCommands } from '@yoopta/lists';
-import { HeadingOne, HeadingOneCommands, HeadingThree, HeadingTwo } from '@yoopta/headings';
-import Table, { TableCommands } from '@yoopta/table';
-import { Blocks, Elements, YooEditor, Paths, YooptaPathIndex } from '@yoopta/editor';
+import { HeadingOneCommands } from '@yoopta/headings';
+import { Blocks, YooptaPathIndex } from '@yoopta/editor';
+import { I18nYooEditor } from '@yoopta/i18n';
 
 type Props = {
-  editor: YooEditor;
+  editor: I18nYooEditor;
   DEFAULT_DATA: any;
 };
 
@@ -47,28 +48,42 @@ export const FixedToolbar = ({ editor, DEFAULT_DATA }: Props) => {
           }}
           className="p-2 text-xs shadow-md border-r hover:bg-[#64748b] hover:text-[#fff]"
         >
-          Insert Image
+          {/* Insert Image */}
+          {editor.t('editor.blockOptions.turnInto') || 'Turn into'}
         </button>
         <button
           type="button"
           onClick={() => {
             const at: YooptaPathIndex = typeof editor.path.current ? editor.path.current : 2;
-            console.log('toggleBlock at', at);
-            editor.toggleBlock('Blockquote', { at: at, focus: true });
+            editor.toggleBlock('Blockquote', { at, focus: true });
           }}
           className="p-2 text-xs shadow-md border-r hover:bg-[#64748b] hover:text-[#fff]"
         >
-          Toggle into Blockquote
+          {/* Toggle into Blockquote */}
+          {editor.t('toggle.into.blockquote') || 'Toggle into Blockquote'}
         </button>
+        <div className="flex flex-col px-2">
+          <span>Languages</span>
+          <div className="flex">
+            {editor.languages.map((lang) => {
+              const isCurrent = lang === editor.language;
+
+              return (
+                <button
+                  key={lang}
+                  className={`text-xs cursor-pointer shadow-md border-0 p-2 ${isCurrent ? 'bg-blue-500' : ''}`}
+                  onClick={() => editor.setLanguage(lang)}
+                >
+                  {lang}
+                </button>
+              );
+            })}
+          </div>
+        </div>
         <button
           type="button"
           onClick={() => {
             editor.batchOperations(() => {
-              const calloutElement = CalloutCommands.buildCalloutElements(editor, {
-                text: 'Heading with text',
-                props: { theme: 'warning' },
-              });
-
               CalloutCommands.insertCallout(editor, {
                 at: 1,
                 focus: true,
@@ -77,18 +92,12 @@ export const FixedToolbar = ({ editor, DEFAULT_DATA }: Props) => {
               });
 
               TodoListCommands.insertTodoList(editor, {
-                at: 1,
+                at: 2,
                 focus: true,
                 props: { checked: true },
                 text: 'Todo list',
               });
             });
-
-            // editor.insertBlock('Callout', {
-            //   at: 1,
-            //   focus: true,
-            //   blockData: { value: [calloutElement] },
-            // });
           }}
           className="p-2 text-xs shadow-md border-r hover:bg-[#64748b] hover:text-[#fff]"
         >

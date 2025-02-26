@@ -40,7 +40,8 @@ const TableBlockOptions = ({ editor, block, table }: Props) => {
           >
             <span className="yoo-table-flex">
               <Sheet width={16} height={16} className="yoo-table-w-4 yoo-table-h-4 yoo-table-mr-2" />
-              Header row
+              {/* Header row */}
+              {editor.getLabelText('plugins.Table.options.toggleHeaderRow') || 'Header row'}
             </span>
             {isHeaderRowEnabled && <CheckIcon width={16} height={16} className="yoo-table-w-4 yoo-table-h-4" />}
           </button>
@@ -57,7 +58,8 @@ const TableBlockOptions = ({ editor, block, table }: Props) => {
                 height={16}
                 className="yoo-table-w-4 yoo-table-h-4 yoo-table-mr-2 yoo-table-rotate-180"
               />
-              Header column
+              {/* Header column */}
+              {editor.getLabelText('plugins.Table.options.toggleHeaderColumn') || 'Header column'}
             </span>
             {isHeaderColumnEnabled && <CheckIcon width={16} height={16} className="yoo-table-w-4 yoo-table-h-4" />}
           </button>

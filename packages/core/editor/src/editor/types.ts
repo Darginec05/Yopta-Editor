@@ -1,14 +1,14 @@
 import { Descendant, Path, Point, Selection } from 'slate';
 import { Plugin, PluginElementsMap, PluginOptions, PluginElementProps } from '../plugins/types';
 import { EditorBlurOptions } from './core/blur';
-import { deleteBlock, DeleteBlockOptions } from './blocks/deleteBlock';
-import { duplicateBlock, DuplicateBlockOptions } from './blocks/duplicateBlock';
+import { deleteBlock } from './blocks/deleteBlock';
+import { duplicateBlock } from './blocks/duplicateBlock';
 import { focusBlock } from './blocks/focusBlock';
-import { toggleBlock, ToggleBlockOptions } from './blocks/toggleBlock';
+import { toggleBlock } from './blocks/toggleBlock';
 import { GetBlockOptions } from './blocks/getBlock';
 import { ReactEditor } from 'slate-react';
-import { applyTransforms, ApplyTransformsOptions, YooptaOperation } from './core/applyTransforms';
-import { insertBlock, InsertBlockOptions } from './blocks/insertBlock';
+import { applyTransforms, YooptaOperation } from './core/applyTransforms';
+import { insertBlock } from './blocks/insertBlock';
 import { increaseBlockDepth } from './blocks/increaseBlockDepth';
 import { SplitBlockOptions } from './blocks/splitBlock';
 import { HistoryStack, HistoryStackName, YooptaHistory } from './core/history';
@@ -21,6 +21,7 @@ import { getHTML } from '../parsers/getHTML';
 import { getMarkdown } from '../parsers/getMarkdown';
 import { getPlainText } from '../parsers/getPlainText';
 import { getEmail } from '../parsers/getEmail';
+import { getLabelText } from './i18n/getLabelText';
 
 export type YooptaBlockData<T = Descendant | SlateElement> = {
   id: string;
@@ -83,6 +84,7 @@ export type YooptaEventsMap = {
   blur: boolean;
   'block:copy': YooptaBlockData;
   'path-change': YooptaPath;
+  [key: string]: any;
 };
 
 export type BaseCommands = Record<string, (...args: any[]) => any>;
@@ -125,6 +127,9 @@ export type YooEditor = {
   // core handlers
   applyTransforms: WithoutFirstArg<typeof applyTransforms>;
   batchOperations: (fn: () => void) => void;
+
+  // default labels. get label by current language. default: 'en'
+  getLabelText: WithoutFirstArg<typeof getLabelText>;
 
   // events handlers
   on: <K extends keyof YooptaEventsMap>(event: K, fn: (payload: YooptaEventsMap[K]) => void) => void;

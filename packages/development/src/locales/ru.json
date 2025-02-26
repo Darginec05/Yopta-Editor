@@ -1,0 +1,147 @@
+{
+  "editor": {
+    "blockOptions": {
+      "delete": "Удалить",
+      "duplicate": "Дублировать",
+      "turnInto": "Преобразовать в",
+      "copyBlockLink": "Скопировать ссылку на блок"
+    },
+    "placeholder": "Введите '/' для команд"
+  },
+  "plugins": {
+    "Paragraph": {
+      "display": {
+        "title": "Параграф",
+        "description": "Текстовый параграф"
+      }
+    },
+    "Blockquote": {
+      "display": {
+        "title": "Цитата",
+        "description": "Цитата блока"
+      }
+    },
+    "Callout": {
+      "display": {
+        "title": "Вызов",
+        "description": "Блок вызова"
+      },
+      "options": {
+        "theme": {
+          "default": "По умолчанию",
+          "warning": "Предупреждение",
+          "success": "Успех",
+          "error": "Опасность",
+          "info": "Информация"
+        }
+      }
+    },
+    "Accordion": {
+      "display": {
+        "title": "Аккордеон",
+        "description": "Блок аккордеона"
+      }
+    },
+    "BulletedList": {
+      "display": {
+        "title": "Маркированный список",
+        "description": "Маркированный список"
+      }
+    },
+    "NumberedList": {
+      "display": {
+        "title": "Нумерованный список",
+        "description": "Нумерованный список"
+      }
+    },
+    "TodoList": {
+      "display": {
+        "title": "Список задач",
+        "description": "Список задач"
+      }
+    },
+    "Image": {
+      "display": {
+        "title": "Изображение",
+        "description": "Изображение"
+      }
+    },
+    "Video": {
+      "display": {
+        "title": "Видео",
+        "description": "Видео"
+      }
+    },
+    "File": {
+      "display": {
+        "title": "Файл",
+        "description": "Файл для скачивания"
+      }
+    },
+    "Table": {
+      "display": {
+        "title": "Таблица",
+        "description": "Таблица"
+      },
+      "options": {
+        "toggleHeaderRow": "Переключить строку заголовка",
+        "toggleHeaderColumn": "Переключить столбец заголовка"
+      }
+    },
+    "Code": {
+      "display": {
+        "title": "Код",
+        "description": "Блок кода"
+      }
+    },
+    "Divider": {
+      "display": {
+        "title": "Разделитель",
+        "description": "Разделитель"
+      }
+    },
+    "HeadingOne": {
+      "display": {
+        "title": "Заголовок 1",
+        "description": "Заголовок 1 уровня"
+      }
+    },
+    "HeadingTwo": {
+      "display": {
+        "title": "Заголовок 2",
+        "description": "Заголовок 2 уровня"
+      }
+    },
+    "HeadingThree": {
+      "display": {
+        "title": "Заголовок 3",
+        "description": "Заголовок 3 уровня"
+      }
+    }
+  },
+  "tools": {
+    "toolbar": {
+      "highlightColor": {
+        "text": "Текст",
+        "background": "Фон",
+        "customColor": "Пользовательский цвет"
+      },
+      "linkTitle": "Ссылка"
+    },
+    "link": {
+      "target": "Цель ссылки",
+      "rel": "Рел",
+      "update": "Обновить",
+      "add": "Добавить",
+      "delete": "Удалить ссылку",
+      "edit": "Редактировать",
+      "url": "URL",
+      "title": "Заголовок",
+      "additionalProps": "Дополнительные свойства",
+      "titlePlaceholder": "Изменить заголовок ссылки",
+      "urlPlaceholder": "Изменить URL ссылки",
+      "targetPlaceholder": "Изменить цель ссылки",
+      "relPlaceholder": "Изменить rel ссылки"
+    }
+  }
+}

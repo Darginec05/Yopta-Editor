@@ -27,11 +27,13 @@ export function buildActionMenuRenderProps({ editor, view, onClose, mode = 'togg
       items = items.filter((type) => filterToggleActions(editor, type));
     }
 
-    return items.map((action) => {
-      const title = editor.blocks[action].options?.display?.title || action;
-      const description = editor.blocks[action].options?.display?.description;
-      const icon = editor.blocks[action].options?.display?.icon;
-      return { type: action, title, description, icon };
+    return items.map((type) => {
+      const title =
+        editor.getLabelText(`plugins.${type}.display.title`) || editor.blocks[type].options?.display?.title || type;
+      const description =
+        editor.getLabelText(`plugins.${type}.display.description`) || editor.blocks[type].options?.display?.description;
+      const icon = editor.blocks[type].options?.display?.icon;
+      return { type: type, title, description, icon };
     });
   };
 

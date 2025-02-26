@@ -26,7 +26,9 @@ const EmbedUploader = ({ blockId, onClose }) => {
     <div className="yoo-image-cursor-pointer yoo-image-user-select-none yoo-image-transition-bg yoo-image-duration-20 yoo-image-ease-in yoo-image-white-space-nowrap yoo-image-w-full">
       <input
         type="text"
-        placeholder="Paste image link"
+        placeholder={
+          editor.getLabelText('plugins.Image.options.placeholder.external.placeholder') || 'Paste image link'
+        }
         value={value}
         className="yoo-image-items-center yoo-image-bg-[hsla(45,13%,94%,.6)] yoo-image-rounded-[4px] yoo-image-shadow-[inset_0_0_0_1px_hsla(0,0%,6%,.1)] yoo-image-cursor-text yoo-image-flex yoo-image-text-[14px] yoo-image-h-[32px] yoo-image-leading-[20px] yoo-image-px-[6px] yoo-image-relative yoo-image-w-full yoo-image-border-none"
         onChange={onChange}
@@ -37,7 +39,7 @@ const EmbedUploader = ({ blockId, onClose }) => {
         disabled={isEmpty}
         onClick={embed}
       >
-        Embed image
+        {editor.getLabelText('plugins.Image.options.placeholder.external.button') || 'Embed image'}
       </button>
     </div>
   );

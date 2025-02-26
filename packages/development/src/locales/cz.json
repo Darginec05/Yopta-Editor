@@ -1,0 +1,146 @@
+{
+  "editor": {
+    "blockOptions": {
+      "delete": "Smazat",
+      "duplicate": "Duplikovat",
+      "turnInto": "Převést na",
+      "copyBlockLink": "Kopírovat odkaz na blok"
+    },
+    "placeholder": "Zadejte '/' pro příkazy"
+  },
+  "plugins": {
+    "Paragraph": {
+      "display": {
+        "title": "Odstavec",
+        "description": "Textový odstavec"
+      }
+    },
+    "Blockquote": {
+      "display": {
+        "title": "Citace",
+        "description": "Bloková citace"
+      }
+    },
+    "Callout": {
+      "display": {
+        "title": "Výzva",
+        "description": "Blokové volání"
+      },
+      "options": {
+        "theme": {
+          "default": "Výchozí",
+          "success": "Úspěch",
+          "warning": "Varování",
+          "error": "Nebezpečí",
+          "info": "Informace"
+        }
+      }
+    },
+    "Accordion": {
+      "display": {
+        "title": "Akordeon",
+        "description": "Blokový akordeon"
+      }
+    },
+    "BulletedList": {
+      "display": {
+        "title": "Seznam s odrážkami",
+        "description": "Seznam s odrážkami"
+      }
+    },
+    "NumberedList": {
+      "display": {
+        "title": "Číslovaný seznam",
+        "description": "Číslovaný seznam"
+      }
+    },
+    "TodoList": {
+      "display": {
+        "title": "Seznam úkolů",
+        "description": "Seznam úkolů"
+      }
+    },
+    "Image": {
+      "display": {
+        "title": "Obrázek",
+        "description": "Obrázek"
+      }
+    },
+    "Video": {
+      "display": {
+        "title": "Video",
+        "description": "Video"
+      }
+    },
+    "File": {
+      "display": {
+        "title": "Soubor",
+        "description": "Soubor ke stažení"
+      }
+    },
+    "Table": {
+      "display": {
+        "title": "Tabulka",
+        "description": "Tabulka"
+      },
+      "options": {
+        "toggleHeaderRow": "Přepnout řádek záhlaví",
+        "toggleHeaderColumn": "Přepnout sloupec záhlaví"
+      }
+    },
+    "Code": {
+      "display": {
+        "title": "Kód",
+        "description": "Blokový kód"
+      }
+    },
+    "Divider": {
+      "display": {
+        "title": "Oddělovač",
+        "description": "Oddělovač"
+      }
+    },
+    "HeadingOne": {
+      "display": {
+        "title": "Nadpis 1",
+        "description": "Nadpis 1. úrovně"
+      }
+    },
+    "HeadingTwo": {
+      "display": {
+        "title": "Nadpis 2",
+        "description": "Nadpis 2. úrovně"
+      }
+    },
+    "HeadingThree": {
+      "display": {
+        "title": "Nadpis 3",
+        "description": "Nadpis 3. úrovně"
+      }
+    }
+  },
+  "tools": {
+    "toolbar": {
+      "highlightColor": {
+        "text": "Text",
+        "background": "Pozadí",
+        "customColor": "Vlastní barva"
+      },
+      "linkTitle": "Odkaz"
+    },
+    "link": {
+      "target": "Target",
+      "rel": "Rel",
+      "update": "Obnovit",
+      "add": "Pridat",
+      "delete": "Smazat",
+      "url": "URL",
+      "title": "Titul",
+      "additionalProps": "Další vlastnosti",
+      "titlePlaceholder": "Upravit titul odkazu",
+      "urlPlaceholder": "Upravit URL odkazu",
+      "targetPlaceholder": "Upravit cíl odkazu",
+      "relPlaceholder": "Upravit rel odkazu"
+    }
+  }
+}

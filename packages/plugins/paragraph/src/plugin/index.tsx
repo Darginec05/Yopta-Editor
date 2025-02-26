@@ -1,7 +1,6 @@
 import { serializeTextNodes, serializeTextNodesIntoMarkdown, YooptaPlugin } from '@yoopta/editor';
-import { Element, Transforms } from 'slate';
 import { ParagraphCommands } from '../commands';
-import { ParagraphElement, ParagraphElementMap } from '../types';
+import { ParagraphElementMap } from '../types';
 import { ParagraphRender } from '../ui/Paragraph';
 
 const Paragraph = new YooptaPlugin<ParagraphElementMap>({

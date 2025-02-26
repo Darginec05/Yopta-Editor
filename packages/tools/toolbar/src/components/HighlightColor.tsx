@@ -60,7 +60,7 @@ const HighlightColor = ({ editor, refs, floatingStyles, highlightColors = {} }: 
     }
 
     setLocalColor(null);
-  }, 500);
+  }, 250);
 
   const handleColorChange = (type: 'color' | 'backgroundColor', color: string, shouldDebounce?: boolean) => {
     if (shouldDebounce) {
@@ -105,7 +105,7 @@ const HighlightColor = ({ editor, refs, floatingStyles, highlightColors = {} }: 
               }`}
               onClick={() => setTab('text')}
             >
-              Text
+              {editor.getLabelText('tools.toolbar.highlightColor.text') || 'Text'}
             </button>
             <button
               className={`yoo-toolbar-px-3 yoo-toolbar-py-1 yoo-toolbar-text-sm yoo-toolbar-rounded ${
@@ -115,7 +115,7 @@ const HighlightColor = ({ editor, refs, floatingStyles, highlightColors = {} }: 
               }`}
               onClick={() => setTab('background')}
             >
-              Background
+              {editor.getLabelText('tools.toolbar.highlightColor.background') || 'Background'}
             </button>
           </div>
 
@@ -139,7 +139,7 @@ const HighlightColor = ({ editor, refs, floatingStyles, highlightColors = {} }: 
               className="yoo-toolbar-text-sm yoo-toolbar-text-gray-600 hover:yoo-toolbar-text-gray-900 yoo-toolbar-flex yoo-toolbar-items-center"
               onClick={() => setShowColorPicker(!showColorPicker)}
             >
-              Color Picker
+              {editor.getLabelText('tools.toolbar.highlightColor.customColor') || 'Custom color'}
               <PaletteIcon className="yoo-toolbar-w-4 yoo-toolbar-h-4 yoo-toolbar-ml-1" />
             </button>
 

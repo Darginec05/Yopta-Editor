@@ -33,9 +33,9 @@ const BlockOptionsSeparator = ({ className = '' }: BlockOptionsSeparatorProps) =
 );
 
 export type BlockOptionsProps = {
+  refs: any;
   isOpen: boolean;
   onClose: () => void;
-  refs: any;
   style: CSSProperties;
   children?: React.ReactNode;
   actions?: ['delete', 'duplicate', 'turnInto', 'copy'] | null;
@@ -79,7 +79,6 @@ const BlockOptions = ({ isOpen, onClose, refs, style, actions = DEFAULT_ACTIONS,
   const onDuplicate = () => {
     // [TEST]
     if (typeof editor.path.current !== 'number') return;
-
     editor.duplicateBlock({ original: { path: editor.path.current }, focus: true });
 
     onClose();
@@ -116,13 +115,13 @@ const BlockOptions = ({ isOpen, onClose, refs, style, actions = DEFAULT_ACTIONS,
                 <BlockOptionsMenuItem>
                   <button type="button" className="yoopta-block-options-button" onClick={onDelete}>
                     <TrashIcon className="yoo-editor-w-4 yoo-editor-h-4 yoo-editor-mr-2" />
-                    Delete
+                    {editor.getLabelText('editor.blockOptions.delete') || 'Delete'}
                   </button>
                 </BlockOptionsMenuItem>
                 <BlockOptionsMenuItem>
                   <button type="button" className="yoopta-block-options-button" onClick={onDuplicate}>
                     <CopyIcon className="yoo-editor-w-4 yoo-editor-h-4 yoo-editor-mr-2" />
-                    Duplicate
+                    {editor.getLabelText('editor.blockOptions.duplicate') || 'Duplicate'}
                   </button>
                 </BlockOptionsMenuItem>
                 {!!ActionMenu && !isVoidElement && !editor.blocks[currentBlock?.type || '']?.hasCustomEditor && (
@@ -131,7 +130,6 @@ const BlockOptions = ({ isOpen, onClose, refs, style, actions = DEFAULT_ACTIONS,
                       <Portal id="yoo-block-options-portal">
                         <Overlay lockScroll className="yoo-editor-z-[100]" onClick={() => setIsActionMenuOpen(false)}>
                           <div style={actionMenuStyles} ref={actionMenuRefs.setFloating}>
-                            {/* @ts-ignore - fixme */}
                             <ActionMenu {...actionMenuRenderProps} />
                           </div>
                         </Overlay>
@@ -144,14 +142,14 @@ const BlockOptions = ({ isOpen, onClose, refs, style, actions = DEFAULT_ACTIONS,
                       onClick={() => setIsActionMenuOpen((open) => !open)}
                     >
                       <TurnIcon className="yoo-editor-w-4 yoo-editor-h-4 yoo-editor-mr-2" />
-                      Turn into
+                      {editor.getLabelText('editor.blockOptions.turnInto') || 'Turn into'}
                     </button>
                   </BlockOptionsMenuItem>
                 )}
                 <BlockOptionsMenuItem>
                   <button type="button" className="yoopta-block-options-button" onClick={onCopy}>
                     <Link2Icon className="yoo-editor-w-4 yoo-editor-h-4 yoo-editor-mr-2" />
-                    Copy link to block
+                    {editor.getLabelText('editor.blockOptions.copyBlockLink') || 'Copy link to block'}
                   </button>
                 </BlockOptionsMenuItem>
               </BlockOptionsMenuGroup>

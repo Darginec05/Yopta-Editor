@@ -42,16 +42,20 @@ const DefaultActionMenuRender = ({
         >
           {empty && (
             <div className="yoo-action-menu-text-left yoo-action-menu-text-muted-foreground yoo-action-menu-text-xs yoo-action-menu-px-1 yoo-action-menu-py-1">
-              No actions available
+              {editor.getLabelText('tools.actionMenu.noActionsAvailable') || 'No actions available'}
             </div>
           )}
-          {actions.map((action, i) => {
+          {actions.map((action) => {
             const block = editor.blocks[action.type];
 
             if (!block) return null;
 
-            const title = block.options?.display?.title || block.type;
-            const description = block.options?.display?.description || '';
+            const title =
+              editor.getLabelText(`plugins.${block.type}.display.title`) || block.options?.display?.title || block.type;
+            const description =
+              editor.getLabelText(`plugins.${block.type}.display.description`) ||
+              block.options?.display?.description ||
+              '';
             const Icon = action.icon || DEFAULT_ICONS_MAP[action.type];
 
             return (

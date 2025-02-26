@@ -20,11 +20,14 @@ export function buildActionMenuRenderProps({ editor, view, onClose }: Params) {
   const getActions = () => {
     const items = Object.keys(editor.blocks)
       .filter((type) => filterToggleActions(editor, type))
-      .map((action) => {
-        const title = editor.blocks[action].options?.display?.title || action;
-        const description = editor.blocks[action].options?.display?.description;
-        const icon = editor.blocks[action].options?.display?.icon;
-        return { type: action, title, description, icon };
+      .map((type) => {
+        const title =
+          editor.getLabelText(`plugins.${type}.display.title`) || editor.blocks[type].options?.display?.title || type;
+        const description =
+          editor.getLabelText(`plugins.${type}.display.description`) ||
+          editor.blocks[type].options?.display?.description;
+        const icon = editor.blocks[type].options?.display?.icon;
+        return { type: type, title, description, icon };
       });
 
     return items;

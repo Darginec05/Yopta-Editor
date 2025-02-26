@@ -115,7 +115,8 @@ const LinkHoverPreview = ({ style, setFloating, element, setHoldLinkTool, blockI
             setIsEditLinkToolsOpen((prev) => !prev);
           }}
         >
-          Edit
+          {/* Edit */}
+          {editor.getLabelText('tools.link.edit') || 'Edit'}
         </button>
       </div>
     </Portal>

@@ -71,7 +71,9 @@ const YooptaEditor = ({
   }, [marksProps]);
 
   const plugins = useMemo(() => {
-    return pluginsProps.map((plugin) => plugin.getPlugin as Plugin<Record<string, SlateElement>>);
+    return pluginsProps.map((plugin) => {
+      return plugin.getPlugin as Plugin<Record<string, SlateElement>>;
+    });
   }, [pluginsProps]);
 
   const [editorState, setEditorState] = useState<EditorState>(() => {

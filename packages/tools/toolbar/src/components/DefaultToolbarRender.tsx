@@ -114,7 +114,11 @@ const DefaultToolbarRender = ({ activeBlock, editor, toggleHoldToolbar }: Toolba
     };
   };
 
-  const blockLabel = activeBlock?.options?.display?.title || activeBlock?.type || '';
+  const blockLabel =
+    editor.getLabelText(`plugins.${activeBlock?.type}.display.title`) ||
+    activeBlock?.options?.display?.title ||
+    activeBlock?.type ||
+    '';
 
   const ActionMenu = tools.ActionMenu;
   const LinkTool = tools.LinkTool;
@@ -269,7 +273,7 @@ const DefaultToolbarRender = ({ activeBlock, editor, toggleHoldToolbar }: Toolba
           }}
           style={getModalTriggerStyle('link')}
         >
-          <span className="yoo-toolbar-mr-0">Link</span>
+          <span className="yoo-toolbar-mr-0">{editor.getLabelText('tools.toolbar.linkTitle') || 'Link'}</span>
           {modals.link && !!LinkTool && (
             <Portal id="yoo-link-tool-portal">
               <Overlay lockScroll className="z-[100]" onClick={onClickLinkOverlay}>

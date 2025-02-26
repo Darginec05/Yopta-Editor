@@ -26,6 +26,7 @@ import { mergeBlock } from './blocks/mergeBlock';
 import { UndoRedoOptions, YooptaHistory } from './core/history';
 import EventEmitter from 'eventemitter3';
 import { getEmail, EmailTemplateOptions } from '../parsers/getEmail';
+import { getLabelText } from './i18n/getLabelText';
 
 const eventEmitter = new EventEmitter();
 
@@ -67,6 +68,8 @@ export function createYooptaEditor(): YooEditor {
 
     applyTransforms: (operations, ...args) => applyTransforms(editor, operations, ...args),
     batchOperations: (callback) => batchOperations(editor, callback),
+
+    getLabelText: (key) => getLabelText(editor, key),
 
     on: (event, callback) => Events.on(event, callback),
     off: (event, callback) => Events.off(event, callback),
